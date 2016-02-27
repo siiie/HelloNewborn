@@ -12,8 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-// Make this class abstract and add child/dad/mom classes
-public class Person extends Thread implements Life {
+public abstract class Person extends Thread implements Life {
     private Random random = new Random();
 
     private String fName;
@@ -94,5 +93,7 @@ public class Person extends Thread implements Life {
         }
     }
 
+    // Abstract methods
+    abstract String FamilyRole();
 
 }

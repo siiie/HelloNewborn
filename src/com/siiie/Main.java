@@ -1,5 +1,7 @@
 package com.siiie;
 
+import com.siiie.Family.Child;
+import com.siiie.Family.Man;
 import com.siiie.Family.Person;
 
 import java.text.DateFormat;
@@ -64,7 +66,7 @@ public class Main {
     }
 
     private static Person InitYoel() {
-        Person yoel = new Person();
+        Person yoel = new Man();
         yoel.SetfName("Yoel");
         yoel.SetlName("Mimon");
         yoel.AddLifeActivity("No Sleep");
@@ -77,7 +79,7 @@ public class Main {
     }
 
     private static Person InitNewborn() {
-        Person newborn = new Person();
+        Person newborn = new Child();
         newborn.SetfName("Mor");
         newborn.AddLifeActivity("Cry");
         newborn.AddLifeActivity("Sleep");
