@@ -59,7 +59,6 @@ public class Main {
 
         // Newborn life
         newborn.start();
-
         // Yoel life
         yoel.start();
 
