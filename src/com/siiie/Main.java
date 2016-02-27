@@ -1,16 +1,12 @@
 package com.siiie;
 
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.Months;
-import org.joda.time.Years;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Month;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
@@ -56,11 +52,18 @@ public class Main {
         // Newborn Age
         PrintStringSlow("Newborn age: " +newborn.GetAge());
 
+        ExecutorService tpes = Executors.newFixedThreadPool(2);
+        tpes.execute(newborn);
+        tpes.execute(yoel);
 
-        // Newborn life
-        newborn.start();
-        // Yoel life
-        yoel.start();
+        tpes.shutdown();
+
+
+
+//        // Newborn life
+//        newborn.start();
+//        // Yoel life
+//        yoel.start();
 
     }
 

@@ -82,10 +82,10 @@ public class Person extends Thread implements Life{
     }
 
     public void run(){
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             this.LiveLife();
             try {
-                Thread.sleep(100);
+                Thread.sleep((int)(Math.random() * 1000));
             } catch (Exception e) {
                 e.printStackTrace();
             }
