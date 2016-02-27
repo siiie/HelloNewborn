@@ -1,5 +1,7 @@
-package com.siiie;
+package com.siiie.Family;
 
+import com.siiie.Life;
+import com.siiie.LogClass;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.Months;
@@ -10,8 +12,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-// Make this class abstract and add baby/man/women classes
-public class Person extends Thread implements Life{
+// Make this class abstract and add child/dad/mom classes
+public class Person extends Thread implements Life {
     private Random random = new Random();
 
     private String fName;
@@ -80,7 +82,7 @@ public class Person extends Thread implements Life{
         }
 
     }
-
+    // Thread runnable method
     public void run(){
         for (int i = 0; i < 20; i++) {
             this.LiveLife();

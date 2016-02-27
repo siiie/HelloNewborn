@@ -1,5 +1,7 @@
 package com.siiie;
 
+import com.siiie.Family.Person;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,12 +60,6 @@ public class Main {
 
         tpes.shutdown();
 
-
-
-//        // Newborn life
-//        newborn.start();
-//        // Yoel life
-//        yoel.start();
 
     }
 
