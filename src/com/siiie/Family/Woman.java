@@ -17,4 +17,13 @@ public class Woman extends Person {
         }
 
     }
+
+
+    public void SetIsMom(boolean mom) {
+        isMom = mom;
+    }
+
+    public void SetIsMarries(boolean marries) {
+        isMarries = marries;
+    }
 }

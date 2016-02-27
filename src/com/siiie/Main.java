@@ -1,8 +1,6 @@
 package com.siiie;
 
-import com.siiie.Family.Child;
-import com.siiie.Family.Man;
-import com.siiie.Family.Person;
+import com.siiie.Family.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,10 +13,12 @@ import java.util.concurrent.Executors;
 public class Main {
 
     public static void main(String[] args) {
-        Person newborn;
-        Person yoel;
-        newborn = InitNewborn();
-        yoel = InitYoel();
+
+        Man yoel = null;
+        Woman yael = null;
+        Child newborn = null;
+
+        Family family = InitFamily(yoel,yael,newborn);
 
         StringBuilder sb = new StringBuilder();
         Scanner scanner = new Scanner(System.in);
@@ -56,19 +56,36 @@ public class Main {
         // Newborn Age
         PrintStringSlow("Newborn age: " +newborn.GetAge());
 
-        ExecutorService tpes = Executors.newFixedThreadPool(2);
-        tpes.execute(newborn);
-        tpes.execute(yoel);
+        ExecutorService tpes = Executors.newFixedThreadPool(family.getFamilyMembers().size());
+        // Execute life
+        family.getFamilyMembers().forEach(familyMember -> tpes.execute(familyMember));
 
         tpes.shutdown();
 
 
     }
 
-    private static Person InitYoel() {
-        Person yoel = new Man();
+    private static Family InitFamily(Man yoel, Woman yael, Child newborn) {
+        Family family = new Family();
+        newborn = InitNewborn();
+        yoel = InitYoel();
+        yael = InitYael();
+
+        family.SetDad(yoel);
+        family.SetMom(yael);
+        family.AddChild(newborn);
+
+        return family;
+    }
+
+    private static Man InitYoel() {
+        Man yoel = new Man();
         yoel.SetfName("Yoel");
         yoel.SetlName("Mimon");
+        yoel.SetIsMarries(true);
+        yoel.SetIsDad(true);
+
+        // Some activities
         yoel.AddLifeActivity("No Sleep");
         yoel.AddLifeActivity("Cry");
         yoel.AddLifeActivity("Write Code");
@@ -78,9 +95,27 @@ public class Main {
         return yoel;
     }
 
-    private static Person InitNewborn() {
-        Person newborn = new Child();
+    private static Woman InitYael() {
+        Woman yael = new Woman();
+        yael.SetfName("Yael");
+        yael.SetlName("Mimon");
+        yael.SetIsMarries(true);
+        yael.SetIsMom(true);
+
+        // Some activities
+        yael.AddLifeActivity("No Sleep");
+        yael.AddLifeActivity("Cry");
+        yael.AddLifeActivity("Smile");
+        yael.AddLifeActivity("Waking Yoel to check why the baby is crying");
+
+        return yael;
+    }
+
+    private static Child InitNewborn() {
+        Child newborn = new Child();
         newborn.SetfName("Mor");
+
+        // Some activities
         newborn.AddLifeActivity("Cry");
         newborn.AddLifeActivity("Sleep");
         newborn.AddLifeActivity("Drool");

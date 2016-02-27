@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Family {
+    private List<Person> familyMembers;
     private String familyName;
     private Person mom;
     private Person dad;
@@ -11,6 +12,7 @@ public class Family {
 
     public Family() {
         this.childes = new ArrayList<>();
+        this.familyMembers = new ArrayList<>();
     }
 
     public void AddChild(Child newChild){
@@ -39,5 +41,13 @@ public class Family {
 
     public void SetFamilyName(String familyName) {
         this.familyName = familyName;
+    }
+
+    public List<Person> getFamilyMembers() {
+
+        familyMembers.add(mom);
+        familyMembers.add(dad);
+        childes.forEach(child -> familyMembers.add(child));
+        return familyMembers;
     }
 }

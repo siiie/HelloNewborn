@@ -16,4 +16,12 @@ public class Man extends Person {
         }
 
     }
+
+    public void SetIsDad(boolean dad) {
+        isDad = dad;
+    }
+
+    public void SetIsMarries(boolean marries) {
+        isMarries = marries;
+    }
 }
