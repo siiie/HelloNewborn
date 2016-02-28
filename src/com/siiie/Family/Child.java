@@ -9,7 +9,7 @@ public class Child extends Person{
 
     @Override
     public String FamilyRole() {
-        return "Child";
+        return GetfName() + " is " + "Child";
     }
 
     public Man GetFather() {

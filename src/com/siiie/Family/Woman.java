@@ -8,14 +8,17 @@ public class Woman extends Person {
 
     @Override
     public String FamilyRole() {
+
+        String role;
         if (isMom){
-            return "Mom";
+            role = "Mom";
         }else if(isMarries){
-            return "Wife";
+            role = "Wife";
         }else{
-            return "Bachelor";
+            role = "Bachelor";
         }
 
+        return GetfName() + " is " + role;
     }
 
 

@@ -58,7 +58,7 @@ public class Main {
         }
 
         // Newborn Age
-        PrintStringSlow("Newborn age: " + newborn.GetAge());
+        PrintStringSlow(sentencesList.GetSentence(4) + newborn.GetAge());
 
         family.GetFamilyMembers().forEach(fMember -> PrintStringSlow(((Person)fMember).FamilyRole()));
 

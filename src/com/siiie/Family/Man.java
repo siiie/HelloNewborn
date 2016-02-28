@@ -7,13 +7,17 @@ public class Man extends Person {
 
     @Override
     public String FamilyRole() {
+
+        String role;
         if (isDad){
-            return "Dad";
+            role = "Dad";
         }else if(isMarries){
-            return "Husband";
+            role = "Husband";
         }else{
-            return "Bachelor";
+            role =  "Bachelor";
         }
+
+        return this.GetfName() + " is " + role;
 
     }
 
