@@ -59,7 +59,8 @@ public class Main {
 
         // Newborn Age
         PrintStringSlow(sentencesList.GetSentence(4) + newborn.GetAge());
-
+        // Show family roles
+        PrintStringSlow(sentencesList.GetSentence(6));
         family.GetFamilyMembers().forEach(fMember -> PrintStringSlow(((Person)fMember).FamilyRole()));
 
         ExecutorService tpes = Executors.newFixedThreadPool(family.GetFamilyMembers().size());

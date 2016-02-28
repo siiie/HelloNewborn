@@ -13,8 +13,9 @@ public class Constants {
         this.sentencesList.add("Please choose your newborn name: ");                                                // 1
         this.sentencesList.add("Newborn name is: ");                                                                // 2
         this.sentencesList.add("What is the birthday of the newborn (dd/mm/yyyy) ? ");                              // 3
-        this.sentencesList.add("Newborn age :");                                                                     // 4
+        this.sentencesList.add("Newborn age :");                                                                    // 4
         this.sentencesList.add("Our time machine is not available at the moment, please try later. \nGoodbye!");    // 5
+        this.sentencesList.add("Family roles: ");                                                                   // 6
 
     }
 
