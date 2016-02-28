@@ -14,11 +14,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Man yoel = null;
-        Woman yael = null;
-        Child newborn = null;
-
-        Family family = InitFamily(yoel,yael,newborn);
+        Family family = new Family();
+        Child newborn = InitNewborn();
+        Man yoel = InitYoel();
+        Woman yael = InitYael();
+        newborn.SetFather(yoel);
+        newborn.SetMother(yael);
+        family.AddChild(newborn);
+        family.SetDad(yoel);
+        family.SetMom(yael);
 
         StringBuilder sb = new StringBuilder();
         Scanner scanner = new Scanner(System.in);
@@ -54,28 +58,20 @@ public class Main {
         }
 
         // Newborn Age
-        PrintStringSlow("Newborn age: " +newborn.GetAge());
+        PrintStringSlow("Newborn age: " + newborn.GetAge());
 
-        ExecutorService tpes = Executors.newFixedThreadPool(family.getFamilyMembers().size());
+        family.GetFamilyMembers().forEach(fMember -> PrintStringSlow(((Person)fMember).FamilyRole()));
+
+        ExecutorService tpes = Executors.newFixedThreadPool(family.GetFamilyMembers().size());
         // Execute life
-        family.getFamilyMembers().forEach(familyMember -> tpes.execute(familyMember));
+        family.GetFamilyMembers()
+                .stream()
+                .filter(fMember -> fMember instanceof Runnable)
+                .forEach(fMember -> tpes.execute((Runnable) fMember));
 
         tpes.shutdown();
 
 
-    }
-
-    private static Family InitFamily(Man yoel, Woman yael, Child newborn) {
-        Family family = new Family();
-        newborn = InitNewborn();
-        yoel = InitYoel();
-        yael = InitYael();
-
-        family.SetDad(yoel);
-        family.SetMom(yael);
-        family.AddChild(newborn);
-
-        return family;
     }
 
     private static Man InitYoel() {

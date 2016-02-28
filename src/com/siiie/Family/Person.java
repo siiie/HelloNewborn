@@ -83,7 +83,7 @@ public abstract class Person extends Thread implements Life {
     }
     // Thread runnable method
     public void run(){
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 15; i++) {
             this.LiveLife();
             try {
                 Thread.sleep((int)(Math.random() * 1000));
@@ -94,6 +94,6 @@ public abstract class Person extends Thread implements Life {
     }
 
     // Abstract methods
-    abstract String FamilyRole();
+    public abstract String FamilyRole();
 
 }

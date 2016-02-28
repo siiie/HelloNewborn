@@ -8,7 +8,23 @@ public class Child extends Person{
 
 
     @Override
-    String FamilyRole() {
+    public String FamilyRole() {
         return "Child";
+    }
+
+    public Man GetFather() {
+        return father;
+    }
+
+    public void SetFather(Man father) {
+        this.father = father;
+    }
+
+    public Woman GetMother() {
+        return mother;
+    }
+
+    public void SetMother(Woman mother) {
+        this.mother = mother;
     }
 }

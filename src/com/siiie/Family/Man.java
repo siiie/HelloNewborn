@@ -6,7 +6,7 @@ public class Man extends Person {
     private boolean isMarries;
 
     @Override
-    String FamilyRole() {
+    public String FamilyRole() {
         if (isDad){
             return "Dad";
         }else if(isMarries){
